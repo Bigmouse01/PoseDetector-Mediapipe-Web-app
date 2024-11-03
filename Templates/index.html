@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posture Detection</title>
+</head>
+<body>
+    <h1>Posture Detection</h1>
+    <button id="startButton" onclick="startCamera()">Start Camera</button>
+    <button id="stopButton" onclick="stopCamera()" disabled>Stop Camera</button>
+    <div>
+        <img id="video" src="" alt="Video Feed" style="display:none;">
+    </div>
+    <script>
+        function startCamera() {
+            const video = document.getElementById('video');
+            video.src = "/video_feed";
+            video.style.display = "block";  // Show the video feed
+            document.getElementById('startButton').disabled = true;
+            document.getElementById('stopButton').disabled = false;
+        }
+
+        function stopCamera() {
+            const video = document.getElementById('video');
+            video.src = "";  // Stop the video feed
+            video.style.display = "none";  // Hide the video feed
+            document.getElementById('startButton').disabled = false;
+            document.getElementById('stopButton').disabled = true;
+        }
+    </script>
+</body>
+</html>
+
